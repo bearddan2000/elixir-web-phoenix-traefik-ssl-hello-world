@@ -1,0 +1,13 @@
+# Version of docker-compose
+version: '3.7'
+
+# Defines the containers
+services:
+  # First project container (can be named anything)
+  web:
+    # Build parameters for the container
+    build: bin
+    ports:
+      # Maps ports to be accessed by the app outside of the container
+
+     - "80:4000"
