@@ -1,17 +1,11 @@
 FROM bitwalker/alpine-elixir-phoenix:1.10.3
 
-RUN mkdir /app
+WORKDIR /code
 
-WORKDIR /app
-
-COPY mix.exs mix.lock ./
+COPY bin .
 
 RUN mix do deps.get, deps.compile
 
-COPY assets/package.json assets/package-lock.json ./assets/
-
 RUN npm install --prefix ./assets
-
-COPY . .
 
 CMD ["mix", "phx.server"]
