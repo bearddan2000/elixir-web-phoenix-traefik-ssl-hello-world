@@ -1,21 +1,21 @@
-# elixir-web-phoenix-hello-world
+# elixir-web-phoenix-traefik-ssl-hello-world
 
 ## Description
-A POC elixir phoenix project
+A POC elixir phoenix project rendering html.
+Uses self signed ssl certs.
 
 ## Tech stack
-- elixir 1.11.2
+- ssl
+- self signed
 
 ## Docker stack
+- alpine:edge
 - bitwalker/alpine-elixir-phoenix:1.10.3
-
-## Requirements
-Docker desktop must be installed and the application
-being called must be linux compatiple.
+- traefik
 
 ## To run
 `sudo ./install.sh -u`
-Available http://localhost
+[Availble here](https://myweb.docker.localhost)
 
 ## To stop
 `sudo ./install.sh -d`

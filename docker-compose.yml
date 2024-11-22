@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+    elixir-srv:
+        build: elixir-srv
+        ports:
+        - 80
+        labels:
+        - traefik.enable=true
+        - traefik.http.routers.myapp.tls=true
+        - traefik.http.routers.myapp.rule=Host("myweb.docker.localhost")
+    traefik:
+        build: traefik
+        container_name: traefik
+        labels:
+        - traefik.enable=true
+        - traefik.http.routers.traefik=true
+        ports:
+        - 443:443
+        - 8080:8080
+        volumes:
+        - /var/run/docker.sock:/var/run/docker.sock:ro
